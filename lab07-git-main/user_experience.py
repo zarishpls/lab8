@@ -8,7 +8,7 @@
 
 def choose_difficulty():
     """
-    Allows players to choose the difficulty level of the questionsThe user is going to input their choice.
+    Allows players to choose the difficulty level of the questions. The user is going to input their choice.
 
     Parameters: None
     Returns:
@@ -16,6 +16,13 @@ def choose_difficulty():
     """
     #------------------------
     # Add your code here
+    my_list = ['easy', 'medium', 'hard']
+    print('Difficulty levels are easy, medium, hard')
+    level = input('Please select the difficulty level of the questions:')
+    if level not in my_list:
+        print('Invalid Level')
+    else:
+        return level
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -33,6 +40,13 @@ def display_leaderboard(leaderboard):
 
     The function sorts the leaderboard by scores in descending order and prints the names and scores of the top players. If the leaderboard is empty, it prints a message indicating that there are no scores to display.
     """
+    leaderboard = {'Ali':1, 'Sara':4, 'Amna':6, 'x':7, 'qwe':0}
+    score_list = []
+    for key in leaderboard:
+        score_list.append(key)
+    score_list.sort(reverse = True)
+    for score in score_list:
+        print(a)
     #------------------------
     # Add your code here
     #------------------------
@@ -54,6 +68,9 @@ def save_score(player_name, score, file_path='scores.txt'):
     """
     #------------------------
     # Add your code here
+    with open('scores.txt', 'w') as file:
+        file.write('player_name:score')
+    file.close()
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -72,6 +89,14 @@ def load_top_scores(file_path='scores.txt'):
     """
     #------------------------
     # Add your code here
+    leader_board = {}
+    with open('scores.txt', 'r') as file:
+        player_name, score = line.split(':')
+        player_name = player_name.strip()
+        score = int(score.strip())
+        leader_board = player_name[score]
+    return leader_board
+    file.close()
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -92,6 +117,11 @@ def provide_feedback(is_correct):
     - is it incorrect? "Sorry, that's incorrect."
     """
     #------------------------
+    if is_correct:
+        print("Well Done!")
+    else:
+        print("Sorry, that's incorrect")
+        
     # Add your code here
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
@@ -114,6 +144,7 @@ def fifty_fifty_lifeline(correct_answer, options):
     """
     #------------------------
     # Add your code here
+    
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
